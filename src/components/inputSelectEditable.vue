@@ -13,8 +13,7 @@ export default {
   name: 'inputSelectEditable',
   components: {
     //   mdbInput
-  },
-  
+  },  
   props: {
     value:String,
     label:String,
