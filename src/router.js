@@ -32,6 +32,16 @@ export default new Router({
       path: '/estados',
       name: 'Estados',
       component: () => import( './views/Estados.vue')
+    },
+    {
+      path: '/equipo',
+      name: 'Equipo',
+      component: () => import( './views/Equipo.vue')
+    },
+    {
+      path: '/tarea',
+      name: 'Tareas',
+      component: () => import( './views/Tarea.vue')
     }
     
   ]

@@ -11,12 +11,14 @@
 
       <b-navbar-nav>
         <!-- <b-nav-item to="/usuarios">Usuarios</b-nav-item> -->
-        <!-- <b-nav-item to="/ingresoAMantenimineto" >ingreso a mantenimiento</b-nav-item> -->
+        <!-- <b-nav-item to="/equipo" >Equipos</b-nav-item> -->
         <b-nav-item-dropdown text="Procesamiento" class="hoverable" extra-toggle-classes="nav-link-custom" right>
           <!-- <b-dropdown-item class="hoverable" to="/ingresoAMantenimineto" >ingreso a mantenimiento</b-dropdown-item>    -->
           <b-dropdown-item class="hoverable" to="/ingresoMantenimineto" >ingreso  mantenimiento</b-dropdown-item>         
-          <b-dropdown-item class="hoverable" href="#">Detalle de mantenimiento</b-dropdown-item>
+          <b-dropdown-item class="hoverable" to="/equipo" >Equipos</b-dropdown-item>
+          <b-dropdown-item class="hoverable" to="/tarea" >Tarea</b-dropdown-item>
           <b-dropdown-item class="hoverable" href="#">Combustible de equipo</b-dropdown-item>
+          <b-dropdown-item class="hoverable" :href="config.urlBase+'/testPdf'" download>Descargar Reporte</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
@@ -79,22 +81,23 @@
 </template>
 
 <script>
-// import { mdbNavbar, mdbNavItem, mdbNavbarNav, mdbNavbarToggler, mdbNavbarBrand, mdbFooter,mdbDropdownItem } from 'mdbvue';
+import config from '@/config';
 
-// export default {
-//   name: 'app',
-//   components: {
-//     mdbNavbar,
-//     mdbNavItem,
-//     mdbNavbarNav,
-//     mdbNavbarToggler,
-//     mdbNavbarBrand,
-//     mdbFooter,
-//     mdbDropdownItem
-//   }
-// };
-
+export default {
+  data() {
+    return {
+      config,
+    
+    }
+  },
+  methods: {
+    baseUrl(){
+      return this.config.urlBase;
+    }
+  },
+}
 </script>
+
 
 <style>
 

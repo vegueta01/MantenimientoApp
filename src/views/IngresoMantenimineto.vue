@@ -71,7 +71,7 @@ export default {
                     localReference:'MAN_MAN_ID_ESTADO',
                     reference:'GEN_EST_ID',
                     attributeNameSelect:'GEN_EST_NOMBRE',
-                    service:'genEstado/consult/estadoActivo',
+                    service:'manManten/consult/estadoActivo',
                     label:'estado',
                     // setPositionInTable:3,
                     type:'SELECT_EDITABLE',

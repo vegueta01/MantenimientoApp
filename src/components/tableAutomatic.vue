@@ -9,7 +9,13 @@
     <div class="container mt-3">
        <b-row>
           <b-col>
-            <mdb-btn color="primary" @click="showAdd()">Agreagar registro</mdb-btn>
+            <mdb-btn color="primary" style="width: 15rem;" @click="showAdd()">Agregar registro
+                <span v-if="!completeProcess" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="sr-only">Loading...</span>
+            </mdb-btn>
+            <!-- <span class="spinner-border text-primary" style="width: 2rem; height: 2rem;" role="status">
+              <span class="sr-only">Loading...</span>
+            </span> -->
           </b-col>
         <b-col md="6" class="my-1">    
               <mdb-input class="mt-0 mb-3" v-model="filter"  placeholder="Buscar" ariaDescribedBy="button-addon2">
@@ -19,8 +25,8 @@
        </b-row>
     </div>
       <div class="px-4">
-          
-          <div class="table-wrapper"  >
+         
+          <div class="table-wrapper">
                
                <b-table  
                responsive               
@@ -117,6 +123,7 @@
         </mdb-modal-footer>
       </mdb-modal>
     
+  
 </mdb-container>
 
 </template>
@@ -163,6 +170,15 @@ export default {
     mounted (){
         this.getData().then(); //pasar esta función a computed
     },
+    watch: {
+      completeProcess : function (value){
+        // console.log({completeProcess:value});
+        if(this.showModalMessaje){
+          this.showModalMessaje = false;
+          this.showAdd();
+        }
+      }
+    },
     methods: {
     
     updateChangeInput(changeInput){
@@ -199,7 +215,7 @@ export default {
               self.clickClicks = 0
             }, this.clickDelay);
           } else{
-              if(this.indexTableUbdateSelected === index){
+              if(this.indexTableUbdateSelected === ((this.currentPage-1)*this.perPage)+index){
                    clearTimeout(this.clickTimer);  
                     this.clickResult.push('dblclick');
                     this.clickClicks = 0;
@@ -465,7 +481,10 @@ export default {
       this.currentPage = 1
     },
     showAdd(){
-      if(this.fields.length > 0){ 
+      // console.log({externalItemsLength:this.externalItems.length});s
+      
+      if(this.fields.length > 0 ){
+        if(this.completeProcess){
         this.dataAddAdicional={};   
         for (let i = 0; i < this.fields.length; i++) {   
             if(this.fields[i].key !== 'editar'){
@@ -476,7 +495,11 @@ export default {
                 }                
             }
         }   
-        this.adding = true;              
+        this.adding = true;
+        }else{
+          this.showModalMessaje =true;
+          this.mensssajeModal = `Un momento por favor ...`;
+        }        
       }else{
         this.showModalMessaje =true;
         this.mensssajeModal = `error: no se tiene acceso al servidor`;
@@ -600,6 +623,7 @@ export default {
       //       }           
       //   }
       // }
+      this.completeProcess = true;
         console.log('proceso de busqueda de contraints completo');
         
         return true;
@@ -813,6 +837,7 @@ export default {
       animateIndexAux:0,
       countComponents:0,
       indexTableUbdateSelected:0,
+      completeProcess:false,
       // variables de control de doble clic -->
         clickResult: [],
         clickDelay: 700,
