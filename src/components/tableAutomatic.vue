@@ -4,14 +4,16 @@
  
 <div class="card card-cascade narrower my-5"> 
  <div class="blue-gradient z-depth-2 py-4 mx-4 mb-3 rounded">
-    <h4 class="text-center white-text"><strong>{{tableTitle}}</strong></h4>
+    <h4 class="text-center white-text"><strong>{{tableTitle}}
+                <span v-if="!completeProcess" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="sr-only">Loading...</span>
+            </strong></h4>
  </div>
     <div class="container mt-3">
        <b-row>
           <b-col>
             <mdb-btn color="primary" style="width: 15rem;" @click="showAdd()">Agregar registro
-                <span v-if="!completeProcess" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span class="sr-only">Loading...</span>
+               
             </mdb-btn>
             <!-- <span class="spinner-border text-primary" style="width: 2rem; height: 2rem;" role="status">
               <span class="sr-only">Loading...</span>
@@ -381,7 +383,14 @@ export default {
       console.log({config:this.config});
       console.log({service:this.service});
 
-        let resp = await this.$http.get(this.config.urlBase+'/'+this.service);
+        let resp = await this.$http.get(this.config.urlBase+'/'+this.service).catch(error=>{
+          console.log({error});
+          
+          this.completeProcess=true;
+          this.showModalMessaje =true;
+          this.mensssajeModal = `error: no se tiene acceso al servidor`;
+
+        });
         console.log({resp});
           let dat = {};
           this.items = resp.data.rows;
