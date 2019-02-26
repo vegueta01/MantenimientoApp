@@ -57,6 +57,11 @@ export default new Router({
       path: '/compania_sede',
       name: 'Compañia Sedes',
       component: () => import( './views/Compania_sede.vue')
+    },
+    {
+      path: '/perfil',
+      name: 'Perfiles',
+      component: () => import( './views/Perfil.vue')
     }
     
     

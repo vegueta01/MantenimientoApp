@@ -16,7 +16,8 @@
           <!-- <b-dropdown-item class="hoverable" to="/ingresoAMantenimineto" >ingreso a mantenimiento</b-dropdown-item>    -->
           <b-dropdown-item class="hoverable" to="/ingresoMantenimineto" >ingreso  mantenimiento</b-dropdown-item>         
           <b-dropdown-item class="hoverable" to="/equipo" >Equipos</b-dropdown-item>
-          <b-dropdown-item class="hoverable" to="/tarea" >Tarea</b-dropdown-item>      
+          <b-dropdown-item class="hoverable" to="/tarea" >Tarea</b-dropdown-item>
+          <b-dropdown-item class="hoverable" to="/perfil" >Perfil</b-dropdown-item>      
           <b-dropdown-item class="hoverable" href="#">Combustible de equipo</b-dropdown-item>
           <b-dropdown-item class="hoverable" :href="config.urlBase+'/testPdf'" download>Descargar Reporte</b-dropdown-item>
         </b-nav-item-dropdown>
