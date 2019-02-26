@@ -42,7 +42,12 @@ export default new Router({
       path: '/tarea',
       name: 'Tareas',
       component: () => import( './views/Tarea.vue')
-    }
+    },
+    {
+      path: '/unidad',
+      name: 'Unidad',
+      component: () => import( './views/Unidad.vue')
+    },
     
   ]
 })
