@@ -47,7 +47,18 @@ export default new Router({
       path: '/unidad',
       name: 'Unidad',
       component: () => import( './views/Unidad.vue')
+    },    
+    {
+      path: '/compania',
+      name: 'Compañia',
+      component: () => import( './views/Compania.vue')
     },
+    {
+      path: '/compania_sede',
+      name: 'Compañia Sedes',
+      component: () => import( './views/Compania_sede.vue')
+    }
+    
     
   ]
 })

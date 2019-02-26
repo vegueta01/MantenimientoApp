@@ -16,8 +16,7 @@
           <!-- <b-dropdown-item class="hoverable" to="/ingresoAMantenimineto" >ingreso a mantenimiento</b-dropdown-item>    -->
           <b-dropdown-item class="hoverable" to="/ingresoMantenimineto" >ingreso  mantenimiento</b-dropdown-item>         
           <b-dropdown-item class="hoverable" to="/equipo" >Equipos</b-dropdown-item>
-          <b-dropdown-item class="hoverable" to="/tarea" >Tarea</b-dropdown-item>
-          <b-dropdown-item class="hoverable" to="/unidad" >Unidad</b-dropdown-item>
+          <b-dropdown-item class="hoverable" to="/tarea" >Tarea</b-dropdown-item>      
           <b-dropdown-item class="hoverable" href="#">Combustible de equipo</b-dropdown-item>
           <b-dropdown-item class="hoverable" :href="config.urlBase+'/testPdf'" download>Descargar Reporte</b-dropdown-item>
         </b-nav-item-dropdown>
@@ -27,7 +26,10 @@
         <!-- <b-nav-item to="/usuarios">Usuarios</b-nav-item> -->
         <!-- <b-nav-item to="/ingresoAMantenimineto" >ingreso a mantenimiento</b-nav-item> -->
         <b-nav-item-dropdown text="Administrador" class="hoverable" extra-toggle-classes="nav-link-custom" right>
-          <b-dropdown-item class="hoverable" to="/estados" >Estados</b-dropdown-item>   
+        <b-dropdown-item class="hoverable" to="/estados" >Estados</b-dropdown-item>   
+        <b-dropdown-item class="hoverable" to="/compania" >Compañia</b-dropdown-item>
+        <b-dropdown-item class="hoverable" to="/compania_sede" >Compañia - Sedes</b-dropdown-item>
+        <b-dropdown-item class="hoverable" to="/unidad" >Unidad</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
