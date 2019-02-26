@@ -3,4 +3,6 @@ module.exports = {
     '@vue/app'
   ],
   sourceType: 'unambiguous'
+  //gabriel 
+  
 }
